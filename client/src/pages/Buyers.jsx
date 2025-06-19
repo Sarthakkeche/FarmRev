@@ -15,7 +15,7 @@ function Buyer(){
 
     const fetchBuyer = async() =>{
        try{
-        const response = await axios.get('http://localhost:5000/api/buyer/buy');
+        const response = await axios.get('https://farmrev-backend.onrender.com/api/buyer/buy');
         setBuyers(response.data.buyer || []);
        }catch(e){
         console.error("error in fetching",e);

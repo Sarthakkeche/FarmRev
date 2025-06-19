@@ -6,7 +6,7 @@ function ChatBox({ currentUserId, selectedUser }) {
   const [newMessage, setNewMessage] = useState("");
 
   const fetchMessages = async () => {
-    const res = await axios.get(`http://localhost:5000/api/chat/get/${currentUserId}/${selectedUser._id}`);
+    const res = await axios.get(`https://farmrev-backend.onrender.com/api/chat/get/${currentUserId}/${selectedUser._id}`);
     setMessages(res.data);
   };
 
@@ -16,7 +16,7 @@ function ChatBox({ currentUserId, selectedUser }) {
 
   const sendMessage = async () => {
     if (!newMessage.trim()) return;
-    await axios.post("http://localhost:5000/api/chat/send", {
+    await axios.post("https://farmrev-backend.onrender.com/api/chat/send", {
       senderId: currentUserId,
       receiverId: selectedUser._id,
       content: newMessage,

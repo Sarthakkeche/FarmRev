@@ -17,7 +17,7 @@ function FetchCrops(){
       const fetchCrops = async () => {
         try {
           const token = localStorage.getItem("token");
-          const response = await axios.get("http://localhost:5000/api/crop/allcrops", {
+          const response = await axios.get("https://farmrev-backend.onrender.com/api/crop/allcrops", {
             headers: {
               Authorization: token,
             },
