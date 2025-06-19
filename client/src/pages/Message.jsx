@@ -1,49 +1,4 @@
-// import { useParams } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 
-// function Messages() {
-//   const { receiverId } = useParams();
-//   const [messages, setMessages] = useState([]);
-//   const [newMsg, setNewMsg] = useState("");
-//   const senderId = localStorage.getItem("userId"); // Save this during login/signup
-
-//   useEffect(() => {
-//     axios
-//       .get(`http://localhost:5000/api/messages/${senderId}/${receiverId}`)
-//       .then((res) => setMessages(res.data));
-//   }, [receiverId]);
-
-//   const sendMessage = async () => {
-//     await axios.post("http://localhost:5000/api/messages/send", {
-//       senderId,
-//       receiverId,
-//       message: newMsg,
-//     });
-//     setNewMsg("");
-//   };
-
-//   return (
-//     <div className="messages-container">
-//       <div className="chat-box">
-//         {messages.map((msg, i) => (
-//           <p key={i}>
-//             <strong>{msg.senderId === senderId ? "You" : "Them"}:</strong>{" "}
-//             {msg.message}
-//           </p>
-//         ))}
-//       </div>
-//       <input
-//         value={newMsg}
-//         onChange={(e) => setNewMsg(e.target.value)}
-//         placeholder="Type your message..."
-//       />
-//       <button onClick={sendMessage}>Send</button>
-//     </div>
-//   );
-// }
-
-// export default Messages;
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -66,7 +21,7 @@ function BuyerDashboard() {
   const fetchCrops = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/crop/allcrops", {
+      const response = await axios.get("https://farmrev-backend.onrender.com/api/crop/allcrops", {
         headers: {
           Authorization: token,
         },
@@ -79,7 +34,7 @@ function BuyerDashboard() {
 
   const fetchBestFarmers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/farmer/top");
+      const response = await axios.get("https://farmrev-backend.onrender.com/api/farmer/top");
       setFarmers(response.data.farmers || []);
     } catch (error) {
       console.error("Error fetching farmers:", error);
