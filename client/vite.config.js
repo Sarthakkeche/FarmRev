@@ -14,5 +14,8 @@ export default defineConfig({
     fs: {
       strict: false,
     },
-  }
+  },
+  esbuild: {
+    target: 'esnext' // ✅ allow top-level await
+  },
 })
