@@ -11,7 +11,7 @@ import messageRoutes from "./routes/messageControllers.js";
 
 dotenv.config();
 const app = express();
-
+app.use(express.json());
 const allowedOrigins = [
   'https://farmrev.vercel.app',
   'https://farm-rev-git-main-sarthakkeches-projects.vercel.app'
