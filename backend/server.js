@@ -12,11 +12,21 @@ import messageRoutes from "./routes/messageControllers.js";
 dotenv.config();
 const app = express();
 
+const allowedOrigins = [
+  'https://farmrev.vercel.app',
+  'https://farm-rev-git-main-sarthakkeches-projects.vercel.app'
+];
+
 app.use(cors({
-  origin: "https://farmrev.vercel.app", // ✅ your frontend domain
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed for this origin: ' + origin));
+    }
+  },
   credentials: true
 }));
-app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connected"))
