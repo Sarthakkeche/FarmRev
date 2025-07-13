@@ -2,6 +2,10 @@ import Navbarbuy from "./Navbarbuy";
 import { Link } from "react-router-dom";
 import Footer from "./Foot";
 
+import cropsImg from "../assets/crops.jpg";
+import rateImg from "../assets/rate.webp";
+import buyer from "../assets/buyer.avif";
+import sceme from "../assets/sceme.jpg";
 
 function BuyerDashboard() {
   
@@ -19,7 +23,10 @@ function BuyerDashboard() {
             to="/FetchCrops"
             className="bg-amber-100 hover:bg-amber-200 transition rounded-xl shadow-md flex items-center justify-center h-40 text-xl font-semibold text-green-800"
           >
-           Avilable Crops
+              <img src={cropsImg} alt="Add Crop" className="h-41 w-full object-cover" />
+                <div className="flex-1 flex items-center justify-center text-xl font-semibold text-green-800">
+                  Aviable crops
+                </div>
           </Link>
 
           
