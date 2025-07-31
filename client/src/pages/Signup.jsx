@@ -9,12 +9,17 @@ function Signup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const BASE_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5000"
+    : "https://farmrev-backend.onrender.com";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const role = localStorage.getItem("selectedRole");
 // 
     try {
-      const response = await api.post( "/api/auth/signup", { 
+      const response = await axios.post( `${BASE_URL}/api/auth/signup`, { 
         name,
         email,
         password,

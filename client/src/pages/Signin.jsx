@@ -36,9 +36,16 @@ function Signin() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const BASE_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5000"
+    : "https://farmrev-backend.onrender.com";
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await api.post("/api/auth/signin", { email, password });
+
+
+
+    const response = await axios.post(`${BASE_URL}/api/auth/signin`, { email, password });
 
     if (response.data.success) {
       localStorage.setItem("token", response.data.token);
