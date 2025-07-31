@@ -14,7 +14,8 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   'https://farmrev.vercel.app',
-  'https://farm-rev-git-main-sarthakkeches-projects.vercel.app'
+  'https://farm-rev-git-main-sarthakkeches-projects.vercel.app',
+  'http://localhost:5173'
 ];
 
 app.use(cors({

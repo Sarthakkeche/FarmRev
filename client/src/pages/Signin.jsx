@@ -37,7 +37,7 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("https://farmrev-backend.onrender.com/api/auth/signin", { email, password });
+    const response = await axios.post("https://farmrev-backend.onrender.com/api/auth/signin" || "http://localhost:5000/api/auth/signup", { email, password });
 
     if (response.data.success) {
       localStorage.setItem("token", response.data.token);

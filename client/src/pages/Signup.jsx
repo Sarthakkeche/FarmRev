@@ -11,9 +11,9 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const role = localStorage.getItem("selectedRole");
-
+// 
     try {
-      const response = await axios.post("https://farmrev-backend.onrender.com/api/auth/signup", {
+      const response = await axios.post( "http://localhost:5000/api/auth/signup" || "https://farmrev-backend.onrender.com/api/auth/signup" , {
         name,
         email,
         password,
