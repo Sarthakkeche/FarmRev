@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../api";
 
 function Signup() {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ function Signup() {
     const role = localStorage.getItem("selectedRole");
 // 
     try {
-      const response = await axios.post( "http://localhost:5000/api/auth/signup" || "https://farmrev-backend.onrender.com/api/auth/signup" , {
+      const response = await api.post( "/api/auth/signup", { 
         name,
         email,
         password,
