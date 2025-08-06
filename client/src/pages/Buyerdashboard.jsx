@@ -4,7 +4,7 @@ import Footer from "./Foot";
 
 import cropsImg from "../assets/crops.jpg";
 import rateImg from "../assets/rate.webp";
-import buyer from "../assets/buyer.avif";
+import bfarmer from "../assets/bestfarmer.webp";
 import sceme from "../assets/sceme.jpg";
 
 function BuyerDashboard() {
@@ -19,22 +19,26 @@ function BuyerDashboard() {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <Link
-            to="/FetchCrops"
-            className="bg-amber-100 hover:bg-amber-200 transition rounded-xl shadow-md flex items-center justify-center h-40 text-xl font-semibold text-green-800"
-          >
+          
+          <Link to="/FetchCrops" className="bg-amber-100 hover:bg-amber-200 transition rounded-xl shadow-md h-60 flex flex-col overflow-hidden">
               <img src={cropsImg} alt="Add Crop" className="h-41 w-full object-cover" />
-                <div className="flex-1 flex items-center justify-center text-xl font-semibold text-green-800">
-                  Aviable crops
-                </div>
-          </Link>
+              <div className="flex-1 flex items-center justify-center text-xl font-semibold text-green-800">
+                   Avilabes crops
+              </div>
+            </Link>
+          
 
           
 
-          <Link to="/FetchBestFarmer">
-          <div className="bg-amber-100 hover:bg-amber-200 transition rounded-xl shadow-md flex items-center justify-center h-40 text-xl font-semibold text-green-800">
-            Top Framers
-          </div></Link>
+        
+           <Link to="/FetchBestFarmer" className="bg-amber-100 hover:bg-amber-200 transition rounded-xl shadow-md h-60 flex flex-col overflow-hidden">
+              <img src={bfarmer} alt="Add Crop" className="h-41 w-full object-cover" />
+              <div className="flex-1 flex items-center justify-center text-xl font-semibold text-green-800">
+                    Top Framers
+              </div>
+            </Link>
+          
+
       
          <Link to="/Rate">
          <div className="bg-amber-100 hover:bg-amber-200 transition rounded-xl shadow-md flex items-center justify-center h-40 text-xl font-semibold text-green-800">
